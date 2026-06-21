@@ -7,5 +7,7 @@ The project is fully deployed and can be accessed via the following links:
 
 ### Live Links
 * **Frontend URL:** ecommerce-92gypk2p5-mayank-40259s-projects.vercel.app
+* <img width="1464" height="564" alt="image" src="https://github.com/user-attachments/assets/36d4feaa-5818-44e4-8f60-89fb6947242a" />
+
 * **API Backend URL:** ecommercebackend-4p5wiuw5.b4a.run
 
