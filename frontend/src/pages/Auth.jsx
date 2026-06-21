@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 const Auth = ({ onLoginSuccess }) => {
@@ -18,7 +18,7 @@ const Auth = ({ onLoginSuccess }) => {
 
         try {
             // FIX: Poora complete live path backticks aur dollar sign ($) ke sath perfect kar diya hai
-            const res = await axios.post(`https://b4a.run{endpoint}`, payload);
+            const res = await axios.post(`https://b4a.run/${endpoint}`, payload);
             setMessage(res.data.message);
             setIsError(false);
             if (isLogin) {
