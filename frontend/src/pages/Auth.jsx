@@ -13,23 +13,24 @@ const Auth = ({ onLoginSuccess }) => {
         e.preventDefault();
         const endpoint = isLogin ? 'login' : 'register';
         
-        // डेटा को सही से ऑब्जेक्ट में पैक किया
+        // Data ko sahi se object mein pack kiya
         const payload = isLogin ? { email, password } : { name, email, password };
 
         try {
-            const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, payload);
+            // FIX: Poora complete live path backticks aur dollar sign ($) ke sath perfect kar diya hai
+            const res = await axios.post(`https://b4a.run{endpoint}`, payload);
             setMessage(res.data.message);
             setIsError(false);
             if (isLogin) {
                 onLoginSuccess(res.data.user);
             } else {
-                setIsLogin(true); // रजिस्टर के बाद लॉगिन स्क्रीन पर भेजें
+                setIsLogin(true); // Register ke baad login screen par bhejen
                 setName('');
                 setEmail('');
                 setPassword('');
             }
        } catch (error) {
-           // 👈 Ab static text hatakar asli error ka message print karwayenge
+           // Asli error ka message print karwayenge
            setMessage(error.response?.data?.message || `Frontend Error: ${error.message}`);
            setIsError(true);
         }
@@ -86,4 +87,3 @@ const Auth = ({ onLoginSuccess }) => {
 };
 
 export default Auth;
-

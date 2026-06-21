@@ -16,7 +16,8 @@ const Home = ({ handleAddToCart }) => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/products')
+        // Yahan localhost ko badalkar humne Back4app ka live live URL jod diya hai
+        axios.get('https://b4a.run')
             .then(res => setProducts(res.data))
             .catch(err => console.error("Database connectivity error:", err));
     }, []);
@@ -86,47 +87,15 @@ const Home = ({ handleAddToCart }) => {
                                     <h3 style={{ margin: '0 0 6px 0', fontSize: '17px', fontWeight: '600', color: '#222', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                                         {product.name}
                                     </h3>
-                                    {/* <p style={{ color: '#666', fontSize: '13px', margin: '0 0 15px 0', height: '36px', overflow: 'hidden', lineHex: '1.3' }}>
-                                        {product.description}
-                                    </p> */}
-                                    {/* Sub-Text Description with Smart Line Clamp */}
-                                     <p style={{ 
-                                        color: '#666', 
-                                        fontSize: '13px', 
-                                        margin: '0 0 15px 0', 
-                                        lineHeight: '1.5',
-                                        height: '60px', // 👈 Height thodi badha di taaki text pura samaye
-                                        overflow: 'hidden',
-                                        display: '-webkit-box',
-                                        WebkitLineClamp: 3, // 👈 Pura 3 line tak ka description acche se dikhega
-                                        WebkitBoxOrient: 'vertical'
-                                        }}>
-                                        {product.description}
-                                    </p>
-
-                                </div>
-
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
-                                    <span style={{ fontSize: '22px', fontWeight: '800', color: '#111' }}>
-                                        ₹{parseFloat(product.price).toLocaleString('en-IN')}
-                                    </span>
-                                    
-                                    <button 
-                                        onClick={() => handleAddToCart(product)}
-                                        style={{ 
-                                            padding: '10px 16px', 
-                                            backgroundColor: '#ff9f00', 
-                                            color: 'white', 
-                                            border: 'none', 
-                                            borderRadius: '6px', 
-                                            cursor: 'pointer', 
-                                            fontWeight: 'bold',
-                                            fontSize: '13px',
-                                            boxShadow: '0 3px 10px rgba(255,159,0,0.25)'
-                                        }}
-                                    >
-                                        🛒 Add
-                                    </button>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
+                                        <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#111' }}>₹{product.price}</span>
+                                        <button 
+                                            onClick={() => handleAddToCart(product)}
+                                            style={{ backgroundColor: '#2874f0', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}
+                                        >
+                                            Add To Cart
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

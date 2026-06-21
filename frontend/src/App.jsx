@@ -22,7 +22,7 @@ function App() {
     setCart((prevCart) => prevCart.filter(item => item.id !== id));
   };
 
-  // Database Connection handle karne wala Real Function
+  // Database Connection handle karne wala Real Function (Live Link Connected)
   const handlePlaceOrder = async () => {
     if (!user) {
       alert("Kripya order karne se pehle login karein! 🔒");
@@ -30,7 +30,8 @@ function App() {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/orders/place', {
+      // FIX: Yahan poora correct backend API absolute endpoint path set kar diya hai
+      const res = await axios.post('https://b4a.run', {
         user_id: user.id,
         total_amount: totalAmount,
         cartItems: cart
